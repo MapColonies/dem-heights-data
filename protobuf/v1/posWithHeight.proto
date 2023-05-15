@@ -6,15 +6,16 @@ message PosMessage {
     required double longitude = 1;
     required double latitude = 2;
     double height = 3;
-    string update = 4;
-    double res = 5;
-    TerrainTypes type = 6;
+    string updateDate = 4;
+    double resolutionMeter = 5;
+    TerrainTypes productType = 6;
 }
 
 enum TerrainTypes {
     UNKNOWN = 0; 
-    DSM = 1;
-    DTM = 2;
+    MIXED = 1;
+    DSM = 2;
+    DTM = 3;
 }
 
 message PosWithHeightResponse {
@@ -23,4 +24,5 @@ message PosWithHeightResponse {
 
 message PosRequest {
     repeated PosMessage positions = 1;
+    TerrainTypes type = 6;
 }
